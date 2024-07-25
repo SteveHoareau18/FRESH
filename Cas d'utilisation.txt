@@ -1,0 +1,67 @@
+@startuml
+actor Utilisateur
+
+rectangle "Application d'inventaire d'aliments" {
+    usecase "Créer un compte" as UC1
+    usecase "Activer un compte" as UC2
+    usecase "Se connecter" as UC3
+    usecase "Accéder à la page d'accueil" as UC4
+    usecase "Accéder à un réfrigérateur" as UC5
+    usecase "Ajouter un aliment" as UC6
+    usecase "Modifier un aliment" as UC7
+    usecase "Supprimer un aliment" as UC8
+    usecase "Recevoir alertes de péremption" as UC9
+    usecase "Créer un réfrigérateur" as UC10
+    usecase "Modifier les informations de compte" as UC11
+    usecase "Se déconnecter" as UC12
+    usecase "Supprimer un réfrigérateur" as UC13
+}
+
+Utilisateur -> UC1
+Utilisateur -> UC2
+Utilisateur -> UC3
+Utilisateur -> UC4
+Utilisateur -> UC5
+Utilisateur -> UC6
+Utilisateur -> UC7
+Utilisateur -> UC8
+Utilisateur -> UC9
+Utilisateur -> UC10
+Utilisateur -> UC11
+Utilisateur -> UC12
+Utilisateur -> UC13
+
+UC1 --> UC2 : <<extends>>
+UC2 --> UC3 : <<extends>>
+UC4 --> UC9 : <<includes>>
+UC5 --> UC6 : <<includes>>
+UC5 --> UC7 : <<includes>>
+UC5 --> UC8 : <<includes>>
+UC5 --> UC13 : <<includes>>
+
+@enduml
+
+
+Explications
+Acteurs :
+
+Utilisateur : Représente l'utilisateur de l'application.
+Cas d'utilisation :
+
+Créer un compte (UC1) : L'utilisateur peut créer un compte.
+Activer un compte (UC2) : L'utilisateur doit activer son compte via un courriel de vérification.
+Se connecter (UC3) : L'utilisateur peut se connecter à l'application.
+Accéder à la page d'accueil (UC4) : L'utilisateur peut accéder à la page d'accueil après s'être connecté.
+Accéder à un réfrigérateur (UC5) : L'utilisateur peut accéder à la liste des réfrigérateurs et choisir un réfrigérateur spécifique.
+Ajouter un aliment (UC6) : L'utilisateur peut ajouter des aliments dans un réfrigérateur.
+Modifier un aliment (UC7) : L'utilisateur peut modifier les informations des aliments dans un réfrigérateur.
+Supprimer un aliment (UC8) : L'utilisateur peut supprimer des aliments d'un réfrigérateur.
+Recevoir alertes de péremption (UC9) : L'utilisateur reçoit des alertes de péremption pour les aliments.
+Créer un réfrigérateur (UC10) : L'utilisateur peut créer un nouveau réfrigérateur (limité à 2 réfrigérateurs).
+Modifier les informations de compte (UC11) : L'utilisateur peut modifier ses informations de compte.
+Se déconnecter (UC12) : L'utilisateur peut se déconnecter de l'application.
+Supprimer un réfrigérateur (UC13) : L'utilisateur peut supprimer un réfrigérateur et tous ses aliments.
+Relations :
+
+<<extends>> : Indique qu'un cas d'utilisation est une extension facultative d'un autre cas d'utilisation.
+<<includes>> : Indique qu'un cas d'utilisation inclut obligatoirement un autre cas d'utilisation.
