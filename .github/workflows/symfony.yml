@@ -19,7 +19,7 @@ jobs:
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1'
+        php-version: '8.2'
         extensions: mbstring, xml, bcmath
 
     - name: Install dependencies
@@ -38,4 +38,4 @@ jobs:
       run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/phpcs --standard=ruleset.xml src
 
     - name: Run PHPMD
-      run: vendor/bin/phpmd src text phpmd.xml
+      run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/phpmd src text phpmd.xml
