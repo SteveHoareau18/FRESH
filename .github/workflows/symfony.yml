@@ -23,19 +23,19 @@ jobs:
         extensions: mbstring, xml, bcmath
 
     - name: Install dependencies
-      run: composer install
+      run: cd /home/runner/work/FRESH/FRESH/web && composer install
 
     - name: Run PHPUnit tests
-      run: vendor/bin/phpunit --configuration phpunit.xml.dist
+      run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/phpunit --configuration phpunit.xml.dist
 
     - name: Run PHPStan
-      run: vendor/bin/phpstan analyse --level max src
+      run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/phpstan analyse --level max src
 
     - name: Run Psalm
-      run: vendor/bin/psalm
+      run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/psalm
 
     - name: Run PHP CodeSniffer
-      run: vendor/bin/phpcs --standard=ruleset.xml src
+      run: cd /home/runner/work/FRESH/FRESH/web && vendor/bin/phpcs --standard=ruleset.xml src
 
     - name: Run PHPMD
       run: vendor/bin/phpmd src text phpmd.xml
