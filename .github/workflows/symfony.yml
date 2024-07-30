@@ -1,0 +1,41 @@
+name: Symfony CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, xml, bcmath
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run PHPUnit tests
+      run: vendor/bin/phpunit --configuration phpunit.xml.dist
+
+    - name: Run PHPStan
+      run: vendor/bin/phpstan analyse --level max src
+
+    - name: Run Psalm
+      run: vendor/bin/psalm
+
+    - name: Run PHP CodeSniffer
+      run: vendor/bin/phpcs --standard=ruleset.xml src
+
+    - name: Run PHPMD
+      run: vendor/bin/phpmd src text phpmd.xml
