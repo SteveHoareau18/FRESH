@@ -93,6 +93,7 @@ class Recipe
 
         return $this;
     }
+
     /**
      * @return Collection<int, FoodRecipeNotInRefrigerator>
      */

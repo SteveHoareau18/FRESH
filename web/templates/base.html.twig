@@ -7,58 +7,60 @@
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
     {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
 <body class="theme-mytheme bg-white">
 <header>
     {% for label, flashes in app.session.flashbag.all %}
-        {% set i = 0 %}
-        {% for flash in flashes %}
-            {% if label == "error" %}
-                <div class="alert text-white" id="flash-{{ i }}" style="background-color: #c0392b">
-            {% elseif label == "warning" %}
-                <div class="alert text-white" id="flash-{{ i }}" style="background-color: #e67e22">
+    {% set i = 0 %}
+    {% for flash in flashes %}
+    {% if label == "error" %}
+    <div class="alert text-white" id="flash-{{ i }}" style="background-color: #c0392b">
+        {% elseif label == "warning" %}
+        <div class="alert text-white" id="flash-{{ i }}" style="background-color: #e67e22">
             {% else %}
-                <div  class="alert bg-{{ label }} text-white" id="flash-{{ i }}">
-            {% endif %}
-                    {{ flash|raw }}
-                </div>
+            <div class="alert bg-{{ label }} text-white" id="flash-{{ i }}">
+                {% endif %}
+                {{ flash|raw }}
+            </div>
             <script>
-                setTimeout(function(){
+                setTimeout(function () {
                     document.getElementById('flash-{{ i }}').style = "display:none;";
-                },5000);
+                }, 5000);
             </script>
             {% set i = i+1 %}
-        {% endfor %}
-    {% endfor %}
+            {% endfor %}
+            {% endfor %}
 
-    <nav class="px-4 lg:px-6 py-2.5">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="{{ path('app_main') }}" class="flex items-center">
-                <h1 class="self-center text-7xl italic font-bold text-success">Fresh !</h1>
-            </a>
-            {% if app.user %}
-            <div class="flex items-center lg:order-2">
-                <a href="{{ path('app_fresh_account') }}" class="m-7 btn bg-white border-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                    </svg>
-                </a>
-                <a href="{{ path('app_logout') }}" class="text-white font-bold">
-                    <div class="bg-success border-2 border-primary btn text-white">
-                        DÉCONNEXION
-                    </div>
-                </a>
-            </div>
-            {% endif %}
-        </div>
-    </nav>
+            <nav class="px-4 lg:px-6 py-2.5">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                    <a href="{{ path('app_main') }}" class="flex items-center">
+                        <h1 class="self-center text-7xl italic font-bold text-success">Fresh !</h1>
+                    </a>
+                    {% if app.user %}
+                        <div class="flex items-center lg:order-2">
+                            <a href="{{ path('app_fresh_account') }}" class="m-7 btn bg-white border-gray-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                     class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                    <path fill-rule="evenodd"
+                                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                </svg>
+                            </a>
+                            <a href="{{ path('app_logout') }}" class="text-white font-bold">
+                                <div class="bg-success border-2 border-primary btn text-white">
+                                    DÉCONNEXION
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </nav>
 </header>
 {% block body %}{% endblock %}
 </body>

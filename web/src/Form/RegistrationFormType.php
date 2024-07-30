@@ -19,21 +19,21 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class,[
-                'label'=>'E-mail : ',
-                'attr'=>['class'=>'ml-1 input bg-white border-gray-500']
+            ->add('email', EmailType::class, [
+                'label' => 'E-mail : ',
+                'attr' => ['class' => 'ml-1 input bg-white border-gray-500']
             ])
             ->add("firstname", TextType::class, [
-                'label'=>'Prénom : ',
-                'attr'=>['class'=>'ml-1 input bg-white border-gray-500 mt-5']
+                'label' => 'Prénom : ',
+                'attr' => ['class' => 'ml-1 input bg-white border-gray-500 mt-5']
             ])
             ->add("name", TextType::class, [
-                'label'=>'Nom : ',
-                'attr'=>['class'=>'ml-1 input bg-white border-gray-500 mt-5']
+                'label' => 'Nom : ',
+                'attr' => ['class' => 'ml-1 input bg-white border-gray-500 mt-5']
             ])
             ->add('agreeTerms', CheckboxType::class, [
-                'label'=>'Accepter les conditions d\'utilisation',
-                'attr'=>['class'=>'ml-1 border-gray-500 checkbox mt-5'],
+                'label' => 'Accepter les conditions d\'utilisation',
+                'attr' => ['class' => 'ml-1 border-gray-500 checkbox mt-5'],
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -44,9 +44,9 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'label'=>'Mot de passe : ',
+                'label' => 'Mot de passe : ',
                 'mapped' => false,
-                'attr' => ['class'=>'ml-1 input bg-white border-gray-500 mt-5','autocomplete' => 'new-password'],
+                'attr' => ['class' => 'ml-1 input bg-white border-gray-500 mt-5', 'autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Notre application est sécurisée, ajouté un mot de passe !',
