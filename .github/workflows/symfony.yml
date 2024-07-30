@@ -23,7 +23,7 @@ jobs:
         extensions: mbstring, xml, bcmath
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install
 
     - name: Run PHPUnit tests
       run: vendor/bin/phpunit --configuration phpunit.xml.dist
