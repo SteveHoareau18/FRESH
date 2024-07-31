@@ -1,0 +1,78 @@
+ID Test;Nom du Test;Conditions préalables;Étapes du test;Résultats attendus;Résultats réels;Statut du test
+TC001;Test de création de compte;" - Application web accessible
+ - Base de données opérationnelle";"1. Accéder à la page d'enregistrement
+2. Remplir tous les champs requis
+3. Cocher la case des conditions d'utilisation
+4. Cliquer sur ""S'enregistrer""";" - Compte créé avec succès
+ - Redirection vers la page de confirmation
+ - Email de vérification envoyé";" - Compte créé avec succès
+ - Redirection vers la page de confirmation
+ - Email de vérification envoyé";
+TC002;Test de modification des informations du compte;" - Utilisateur connecté
+ - Accès à la page de profil";"1. Accéder à la page de profil
+2. Modifier les informations (ex: adresse email)
+3. Sauvegarder les modifications";" - Modifications sauvegardées avec succès
+ - Affichage d'un message de confirmation
+ - Nouvelles informations visibles dans le profil";" - Modifications sauvegardées avec succès
+ - Affichage d'un message de confirmation
+ - Nouvelles informations visibles dans le profil";
+TC003;Test d'affichage de la liste des réfrigérateurs;" - Utilisateur connecté
+ - Au moins un réfrigérateur créé";"1. Accéder à la page d'accueil
+2. Vérifier l'affichage de la liste des réfrigérateurs";" - liste des réfrigérateurs visible
+ - Chaque réfrigérateur affiche son nom
+ - Possibilité de cliquer sur Chaque réfrigérateur";" - Liste des réfrigérateurs visible
+ - Chaque réfrigérateur affiche son nom
+ - Possibilité de cliquer sur chaque réfrigérateur";
+TC004;Test d'ajout d'un nouvel aliment;" - Utilisateur connecté
+ - Accès à un réfrigérateur spécifique";"1. Ouvrir la page d'un réfrigérateur
+2. Cliquer sur ""Ajouter un aliment""
+3. Remplir les informations (nom, quantité, date de péremption)
+4. Valider l'ajout";" - Nouvel aliment ajouté à la liste
+ - Affichage d'un message de confirmation
+ - Mise à jour de la liste des aliments";" - Nouvel aliment ajouté à la liste
+ - Affichage d'un message de confirmation
+ - Mise à jour de la liste des aliments";
+TC005;Test d'affichage des alertes pour les aliments périmés;" - Utilisateur connecté
+ - Aliments périmés présents dans au moins un réfrigérateur";"1. Accéder à la page d'accueil
+2. Vérifier l'affichage des alertes de péremption";" - Alertes visibles pour les aliments périmés
+ - Informations correctes (nom de l'aliment, date de péremption)
+ - Option de masquage/affichage fonctionnelle";" - Alertes visibles pour les aliments périmés
+ - Informations correctes (nom de l'aliment, date de péremption)
+ - Option de masquage/affichage fonctionnelle";
+TC006;Test du déclencheur d'insertion d'alertes;" - Base de données opérationnelle
+ - Déclencheur d'insertion d'alertes implémenté";"1. Ajouter un nouvel aliment avec une date de péremption proche
+2. Vérifier la table des alertes dans la base de données";" - Nouvelle alerte insérée automatiquement
+ - Informations de l'alerte correctes (ID de l'aliment, date de péremption)";" - Nouvelle alerte insérée automatiquement
+ - Informations de l'alerte correctes (ID de l'aliment, date de péremption)";
+TC007;Test d'activation de compte;" - Compte utilisateur créé mais non activé
+ - Email de vérification reçu";"1. Ouvrir l'email de vérification
+2. Cliquer sur le lien d'activation
+3. Vérifier la redirection vers la page de confirmation";" - Compte activé avec succès
+ - Message de confirmation affiché
+ - Accès aux fonctionnalités complètes de l'application";" - Compte activé avec succès
+ - Message de confirmation affiché
+ - Accès aux fonctionnalités complètes de l'application";
+TC008;Test de connexion; - Compte utilisateur activé;"1. Accéder à la page de connexion
+2. Entrer les identifiants valides
+3. Cliquer sur ""Se connecter""";" - Connexion réussie
+ - Redirection vers la page d'accueil
+ - Affichage du nom d'utilisateur dans l'interface";" - Connexion réussie
+ - Redirection vers la page d'accueil
+ - Affichage du nom d'utilisateur dans l'interface";
+TC009;Test de création d'un nouveau réfrigérateur;" - Utilisateur connecté
+ - Moins de 2 réfrigérateurs existants";"1. Accéder à la page d'accueil
+2. Cliquer sur ""Créer un nouveau réfrigérateur""
+3. Entrer un nom pour le réfrigérateur
+4. Valider la création";" - Nouveau réfrigérateur créé
+ - Affichage dans la liste des réfrigérateurs
+ - Message de confirmation";" - Nouveau réfrigérateur créé
+ - Affichage dans la liste des réfrigérateurs
+ - Message de confirmation";
+TC010;Test de suppression d'un réfrigérateur;" - Utilisateur connecté
+ - Au moins un réfrigérateur existant";"1. Accéder à la page du réfrigérateur
+2. Cliquer sur ""Supprimer le réfrigérateur""
+3. Confirmer la suppression";" - Réfrigérateur supprimé de la liste
+ - Tous les Aliments associés supprimés
+ - Message de confirmation";" - Réfrigérateur supprimé de la liste
+ - Tous les Aliments associés supprimés
+ - Message de confirmation";

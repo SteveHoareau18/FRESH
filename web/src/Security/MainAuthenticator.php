@@ -57,9 +57,9 @@ class MainAuthenticator extends AbstractLoginFormAuthenticator
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): Response
     {
         if ($request->hasSession()) {
-            if($exception->getCode() == 0){
+            if ($exception->getCode() == 0) {
                 $exception = "E-mail ou mot de passe invalide";
-            }else{
+            } else {
                 $exception = "Une erreur est survenue, merci de ré-essayer";
             }
             $request->getSession()->getFlashBag()->add('error', $exception);

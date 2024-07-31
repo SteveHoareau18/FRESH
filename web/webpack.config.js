@@ -69,13 +69,13 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
     .enablePostCssLoader((options) => {
-    options.postcssOptions = {
-        plugins: [
-            require('postcss-import'),
-            require('tailwindcss'),
-            require('autoprefixer'),
-        ],
-    };
+        options.postcssOptions = {
+            plugins: [
+                require('postcss-import'),
+                require('tailwindcss'),
+                require('autoprefixer'),
+            ],
+        };
     })
 ;
 

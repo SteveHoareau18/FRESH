@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\FoodRecipeNotInRefrigerator;
-use App\Entity\Recipe;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,19 +17,18 @@ class FoodRecipeNotInRefrigeratorFormType extends AbstractType
         $builder
             ->add('quantity', NumberType::class, [
                 'label' => 'Quantité : ',
-                'attr' => ['placeholder' => 'Quantité', 'class'=>'input border-gray-500 text-black bg-white mb-5']
+                'attr' => ['placeholder' => 'Quantité', 'class' => 'input border-gray-500 text-black bg-white mb-5']
             ])
             ->add('unit', TextType::class, [
-                'label'=> 'Unité : ',
-                'attr' => ['placeholder' => 'Litre', 'class'=>'input border-gray-500 text-black bg-white mb-5', 'required' => false],
-                'required'=>false
+                'label' => 'Unité : ',
+                'attr' => ['placeholder' => 'Litre', 'class' => 'input border-gray-500 text-black bg-white mb-5', 'required' => false],
+                'required' => false
             ])
             ->add('name', TextType::class, [
-                'label'=> 'Nom : ',
-                'attr' => ['placeholder : ' => 'Lait', 'class'=>'input border-gray-500 text-black bg-white mb-5']
+                'label' => 'Nom : ',
+                'attr' => ['placeholder : ' => 'Lait', 'class' => 'input border-gray-500 text-black bg-white mb-5']
             ])
-            ->add('submit', SubmitType::class)
-        ;
+            ->add('submit', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

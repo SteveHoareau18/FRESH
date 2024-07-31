@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Coding Standard">
+    <description>
+        Custom ruleset for PHP_CodeSniffer.
+    </description>
+
+    <!-- Include PSR-12 Coding Standard -->
+    <rule ref="PSR12"/>
+
+    <!-- Customizing rules -->
+    <!-- Add rules or ignore specific rules -->
+    <rule ref="Squiz.Functions.FunctionDeclaration" />
+    <rule ref="Squiz.Functions.FunctionCallArgumentSpacing">
+        <exclude name="Squiz.Functions.FunctionCallArgumentSpacing"/>
+    </rule>
+
+    <!-- Include or exclude specific files or directories -->
+    <file>src</file>
+    <file>tests</file>
+    <exclude>*/vendor/*</exclude>
+
+    <!-- Add custom rules if needed -->
+    <rule ref="Generic.Formatting.DisallowMultipleAssignments"/>
+</ruleset>
