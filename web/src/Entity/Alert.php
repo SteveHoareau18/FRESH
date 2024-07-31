@@ -14,7 +14,7 @@ class Alert
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: "alerts")]
     #[ORM\JoinColumn(nullable: false)]
     private ?Food $food = null;
 

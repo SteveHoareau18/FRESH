@@ -22,7 +22,7 @@ class FoodRecipeNotInRefrigerator
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $unit = null;
 
-    #[ORM\ManyToOne(cascade: ['persist'])]
+    #[ORM\ManyToOne(cascade: ['persist'], inversedBy: "foodRecipeNotInRefrigerators")]
     private ?Recipe $recipe = null;
 
     #[ORM\Column(nullable: true)]
