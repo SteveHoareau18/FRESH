@@ -14,13 +14,13 @@ class FoodRecipeInRefrigerator
     private ?int $id = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false, unique: false)]
+    #[ORM\JoinColumn(unique: false, nullable: false)]
     private ?Refrigerator $refrigerator = null;
 
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: "foodRecipeInRefrigerator")]
     #[ORM\JoinColumn(nullable: false)]
     private ?Food $food = null;
 
