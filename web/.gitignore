@@ -26,8 +26,6 @@ npm-debug.log
 yarn-error.log²
 ###< symfony/webpack-encore-bundle ###
 
-docker-compose.yaml
-
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
