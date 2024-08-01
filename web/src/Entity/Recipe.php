@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RecipeRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -39,6 +40,7 @@ class Recipe
     {
         $this->foodRecipeNotInRefrigerators = new ArrayCollection();
         $this->foodRecipeInRefrigerators = new ArrayCollection();
+        $this->createDate = new DateTime();
     }
 
     public function getId(): ?int

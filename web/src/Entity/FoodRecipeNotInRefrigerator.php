@@ -31,7 +31,6 @@ class FoodRecipeNotInRefrigerator
 
     public function __construct()
     {
-
     }
 
     public function getId(): ?int

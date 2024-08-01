@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AlertRepository;
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +32,11 @@ class Alert
     #[ORM\ManyToOne(inversedBy: 'alerts')]
     #[ORM\JoinColumn(nullable: false)]
     private ?FreshUser $recipient = null;
+
+    public function __construct()
+    {
+        $this->alertedDate = new DateTime();
+    }
 
     public function getId(): ?int
     {
