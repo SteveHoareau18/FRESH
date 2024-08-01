@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\FoodRepository;
+use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -40,7 +41,7 @@ class Food
 
     public function __construct()
     {
-
+        $this->addingDate = new DateTime();
     }
 
     public function getId(): ?int

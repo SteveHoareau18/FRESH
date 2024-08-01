@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RefrigeratorRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -36,6 +37,7 @@ class Refrigerator
     {
         $this->foods = new ArrayCollection();
         $this->alerts = new ArrayCollection();
+        $this->addingDate = new DateTime();
     }
 
     public function getId(): ?int
