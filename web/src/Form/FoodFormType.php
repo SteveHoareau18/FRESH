@@ -29,8 +29,6 @@ class FoodFormType extends AbstractType
                     new Range([
                         'min' => 0,
                         'max' => 100,
-                        'minMessage' => 'La quantité doit être au moins {{ limit }}.',
-                        'maxMessage' => 'La quantité ne peut pas être supérieure à {{ limit }}.',
                         'notInRangeMessage' => 'La quantité doit être au dessus 0 et en dessous de 100'
                     ]),
                 ],
